@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\item;
 use Illuminate\Http\Request;
-// use Symfony\Component\HttpFoundation\Response;
 use Response;
 use Illuminate\Support\Carbon;
 
@@ -43,13 +42,7 @@ class ItemController extends Controller
         //     $request->all()
         // ]);
         $item=new item;
-        $item->name=$request->name;
-        if ($request->has('completed')) {
-            $item->completed=$request->completed;
-        }else{
-            $item->completed=0;
-        }
-        
+        $item->name=$request->item['name'];
         $item->save();
     }
 
@@ -86,7 +79,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, item $item)
     {
-        $item=item::findOrFail($item->id);
+        $item=item::find($item->id);
 
         if($item){
             $item->completed=$request->item['completed'] ? true : false;
