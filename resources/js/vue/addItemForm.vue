@@ -30,10 +30,10 @@ export default{
                     item:this.item
                 })
                 .then(response => {
-                    if(response.status == 201){
+                        if(response.status==200){
                         this.item.name = "";
                         this.$emit('reloadlist');
-                    }
+                        }              
                 })
                 .catch(function (error) {
                     console.log(error);

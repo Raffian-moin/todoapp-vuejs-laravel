@@ -12043,7 +12043,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('/item', {
           item: this.item
         }).then(function (response) {
-          if (response.status == 201) {
+          if (response.status == 200) {
             _this.item.name = "";
 
             _this.$emit('reloadlist');
